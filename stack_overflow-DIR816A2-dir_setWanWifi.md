@@ -20,9 +20,9 @@ From the following, we can see that there are two places where our input paramet
 
 Here we focus on v19 and v20, which are respectively written into v25 without length restrictions, which can cause stack overflow. Due to repeated writes into a buffer, we have decided to cause overflow when v20 is written into v25.
 
-![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/7.png?raw=true)
+![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/7.jpg?raw=true)
 
-![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/8.png?raw=true)
+![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/8.jpg?raw=true)
 
 # Recurring vulnerabilities and POC
 
@@ -45,24 +45,24 @@ The following is the result in gdb after sending POC:
 
 Firstly, execute sprintf to write parameter A to v25, corresponding to the circled part in IDA:
 
-![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/9.png?raw=true)
+![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/9.jpg?raw=true)
 
-![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/10.png?raw=true)
+![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/10.jpg?raw=true)
 
 The result returned by sprintf is 0x3fe, indicating that our parameters were successfully written into v25.
 
-![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/11.png?raw=true)
+![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/11.jpg?raw=true)
 
 Continuing with the following execution until the function reaches its end, it can be observed that the return address has been overwritten as' aaaa '.
 
-![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/12.png?raw=true)
+![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/12.jpg?raw=true)
 
 Continuing to run will cause the program to crash.
 
-![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/13.png?raw=true)
+![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/13.jpg?raw=true)
 
 Entering again will result in no response.
 
-![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/14.png?raw=true)
+![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/14.jpg?raw=true)
 
 And you can write your own exp(ROP gadget) to get the root shell.
