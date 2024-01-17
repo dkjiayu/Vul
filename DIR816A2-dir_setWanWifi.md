@@ -12,7 +12,7 @@ Manufacturer's address: <https://www.dlink.com/>
 
 Firmware download address: [D-Link Technical Support (dlink.com.cn)](http://www.dlink.com.cn/techsupport/AllPro.aspx)
 
-![image.png](https://note.youdao.com/yws/res/18434/WEBRESOURCEd07e56b41165a99f331603b5488ec036)
+![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/1.png?raw=true)
 
 # Vulnerability Details
 
@@ -22,7 +22,7 @@ We can perform command injection through parameter wizardstep4\_ssid\_2:
 
 Obtain parameters wizardstep4\_ssid\_2 to v19, ultimately write them into v25, and then execute them in doSystem.
 
-![image.png](https://note.youdao.com/yws/res/18440/WEBRESOURCEfd83f70b9c4786bf46aea64181650715)
+![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/2.png?raw=true)
 
 # Recurring vulnerabilities and POC
 
@@ -30,18 +30,18 @@ We can directly enter in the address bar:
 
     http://192.168.1.25/goform/dir_setWanWifi?connecttype=DHCP&statuscheckpppoeuser=0&wizardstep4_ssid_2=123456;mkdir dingjiayu
 
-![image.png](https://note.youdao.com/yws/res/18464/WEBRESOURCEaa29f130030b276853294d03dc37d039)
+![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/3.png?raw=true)
 
 The following is the parameter status before entering the doSystem function in gdb:
 
-![image.png](https://note.youdao.com/yws/res/18442/WEBRESOURCE6c2fa7cb9accd25e61ca9e61281d31ac)
+![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/4.png?raw=true)
 
 When entering doSystem, check the parameters passed in through register A0:
 
-![image.png](https://note.youdao.com/yws/res/18452/WEBRESOURCE7ca6786df0a8297cccd96b34c23d840e)
+![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/5.png?raw=true)
 
 Now we continue to execute and find that the command has been executed, creating the dingjiayu folder:
 
-![image.png](https://note.youdao.com/yws/res/18456/WEBRESOURCE626b80432a3ecf5b89d01b377f3ebc3c)
+![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/6.png?raw=true)
 
 And you can write your own exp to get the root shell.
