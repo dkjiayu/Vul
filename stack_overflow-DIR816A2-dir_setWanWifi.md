@@ -43,7 +43,7 @@ response = requests.post(url,data=data)
 
 The following is the result in gdb after sending POC:
 
-Firstly, execute sprintf to write parameter A to v25, corresponding to the circled part in IDA:
+Firstly, execute sprintf to write parameter wizardstep4\_ssid\_5 to v25, corresponding to the circled part in IDA:
 
 ![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/9.jpg?raw=true)
 
