@@ -63,6 +63,6 @@ Continuing to run will cause the program to crash.
 
 Entering again will result in no response.
 
-![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/14.jpg?raw=true)
+![image.png](https://github.com/dkjiayu/Vul/blob/main/Pic/15.png?raw=true)
 
 And you can write your own exp(ROP gadget) to get the root shell.
